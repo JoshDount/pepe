@@ -1,0 +1,3 @@
+@echo off
+call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+cl /EHsc /std:c++20 /I"." tests\unit\test_main.cpp tests\unit\test_simple.cpp tests\unit\test_graph_algorithms.cpp tests\unit\test_sorting_algorithms.cpp tests\unit\test_external_sorting.cpp tests\unit\test_event_simulation.cpp tests\unit\test_traffic_simulation.cpp tests\unit\test_gtfs_data_loading.cpp tests\TestFramework.cpp core\graph\Node.cpp /Fe:"unit_tests.exe"
