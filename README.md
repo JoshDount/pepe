@@ -2,6 +2,39 @@
 
 A comprehensive data structures and algorithms project demonstrating real-world engineering applications of fundamental computer science concepts.
 
+🔗 **GitHub Repository**: https://github.com/Dagel4k/PlanificadorRutas.git
+
+## 🚀 Quick Start
+
+### Web Interface (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Dagel4k/PlanificadorRutas.git
+cd PlanificadorRutas
+
+# Start the web interface
+.\start_web.bat
+
+# Or manually:
+cd web\route-planner-ui
+npm install
+npm run build
+cd ..
+python server.py
+```
+
+Open http://localhost:8080 in your browser to access the **professional Route Transit Simulator interface** with dark theme.
+
+### C++ CLI
+```bash
+# Compile and run tests
+.\compile.bat
+.\unit_tests.exe
+
+# CLI interface
+.\launch.bat
+```
+
 ## Overview
 
 This system implements:
