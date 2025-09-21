@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Background colors - Professional dark theme
+        // Using standard Tailwind colors for better compatibility
         'bg': {
           'default': '#0B0F14',  // Base background
           'surface': '#12171F',  // Surface background

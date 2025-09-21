@@ -141,6 +141,7 @@ private:
      */
     void update_traffic_level(uint64_t edge_key, TrafficState& state, 
                              simulation::SimulationTime current_time) const {
+        (void)edge_key; // Suppress unused parameter warning
         double congestion_change_prob = params_.base_congestion_rate;
         
         // Apply rush hour factor

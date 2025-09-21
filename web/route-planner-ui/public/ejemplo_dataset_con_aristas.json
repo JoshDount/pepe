@@ -1,0 +1,66 @@
+{
+  "description": "Ejemplo de dataset con nodos y aristas reales para rutas precisas",
+  "nodes": [
+    {
+      "id": 1,
+      "lat": 24.804016,
+      "lon": -107.404862,
+      "elevation": 15.2,
+      "type": "intersection",
+      "street_names": ["Calle Principal", "Avenida Central"]
+    },
+    {
+      "id": 2,
+      "lat": 24.804200,
+      "lon": -107.404500,
+      "elevation": 15.5,
+      "type": "intersection",
+      "street_names": ["Calle Principal", "Calle Secundaria"]
+    },
+    {
+      "id": 3,
+      "lat": 24.803800,
+      "lon": -107.405200,
+      "elevation": 14.8,
+      "type": "intersection",
+      "street_names": ["Avenida Central", "Calle Norte"]
+    }
+  ],
+  "edges": [
+    {
+      "from": 1,
+      "to": 2,
+      "weight": 45.2,
+      "street_name": "Calle Principal",
+      "street_type": "residential",
+      "one_way": false,
+      "max_speed": 30
+    },
+    {
+      "from": 1,
+      "to": 3,
+      "weight": 38.7,
+      "street_name": "Avenida Central",
+      "street_type": "main",
+      "one_way": false,
+      "max_speed": 50
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "weight": 67.3,
+      "street_name": "Calle Secundaria",
+      "street_type": "residential",
+      "one_way": true,
+      "max_speed": 30
+    }
+  ],
+  "metadata": {
+    "city": "Culiacán, Sinaloa",
+    "source": "OpenStreetMap",
+    "extracted_date": "2024-01-15",
+    "total_nodes": 3480,
+    "total_edges": 12450,
+    "coverage_area": "Centro histórico y zonas principales"
+  }
+}

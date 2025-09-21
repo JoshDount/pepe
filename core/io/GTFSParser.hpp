@@ -502,6 +502,7 @@ private:
         
         std::string line;
         size_t line_number = 0;
+        (void)line_number; // Suppress unused variable warning
         
         // Parse headers
         if (std::getline(file, line)) {

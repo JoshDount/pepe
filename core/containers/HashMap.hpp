@@ -66,7 +66,7 @@ private:
     }
     
     void resize_and_rehash() {
-        size_t old_capacity = capacity_;
+        (void)capacity_; // Suppress unused variable warning
         capacity_ = capacity_ * 2;
         
         if (strategy_ == CollisionStrategy::LINEAR_PROBING) {
@@ -227,7 +227,7 @@ public:
     explicit HashMap(CollisionStrategy strategy = CollisionStrategy::LINEAR_PROBING,
                     size_t initial_capacity = 16,
                     double max_load_factor = 0.75)
-        : strategy_(strategy), capacity_(initial_capacity), size_(0),
+        : strategy_(strategy), size_(0), capacity_(initial_capacity),
           max_load_factor_(max_load_factor), collision_count_(0), probe_count_(0) {
         
         if (strategy_ == CollisionStrategy::LINEAR_PROBING) {

@@ -118,7 +118,7 @@ public:
      * @param initial_capacity Initial capacity for nodes
      */
     explicit WeightedGraph(bool directed = true, size_t initial_capacity = 1000)
-        : is_directed_(directed), num_edges_(0), next_internal_id_(0),
+        : num_edges_(0), is_directed_(directed), next_internal_id_(0),
           access_count_(0), cache_hits_(0) {
         nodes_.reserve(initial_capacity);
         adjacency_list_.reserve(initial_capacity);

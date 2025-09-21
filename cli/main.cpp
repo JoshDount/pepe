@@ -416,6 +416,7 @@ bool TransitSimulatorCLI::cmd_load_gtfs(const std::vector<std::string>& args) {
  * @brief Convert GTFS to graph
  */
 bool TransitSimulatorCLI::cmd_convert_gtfs(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     if (!gtfs_loaded_) {
         std::cout << "❌ No GTFS data loaded. Use 'load_gtfs' first.\n";
         return false;
@@ -440,6 +441,7 @@ bool TransitSimulatorCLI::cmd_convert_gtfs(const std::vector<std::string>& args)
  * @brief Show graph information
  */
 bool TransitSimulatorCLI::cmd_graph_info(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     if (!graph_loaded_) {
         std::cout << "❌ No graph loaded.\n";
         return false;
@@ -539,6 +541,7 @@ bool TransitSimulatorCLI::cmd_dijkstra(const std::vector<std::string>& args) {
  * @brief Start traffic simulation
  */
 bool TransitSimulatorCLI::cmd_start_traffic(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     if (!graph_loaded_) {
         std::cout << "❌ No graph loaded.\n";
         return false;
@@ -556,6 +559,7 @@ bool TransitSimulatorCLI::cmd_start_traffic(const std::vector<std::string>& args
  * @brief Generate traffic report
  */
 bool TransitSimulatorCLI::cmd_traffic_report(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     if (!traffic_sim_) {
         std::cout << "❌ Traffic simulation not started.\n";
         return false;
@@ -595,6 +599,7 @@ bool TransitSimulatorCLI::cmd_benchmark_sort(const std::vector<std::string>& arg
  * @brief Run comprehensive tests
  */
 bool TransitSimulatorCLI::cmd_test_all(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     std::cout << "🧪 Running comprehensive system tests...\n";
     
     // Test graph creation
@@ -670,6 +675,7 @@ bool TransitSimulatorCLI::cmd_astar(const std::vector<std::string>& args) {
 }
 
 bool TransitSimulatorCLI::cmd_mst(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     if (!graph_loaded_) {
         std::cout << "❌ No graph loaded.\n";
         return false;
@@ -715,11 +721,13 @@ bool TransitSimulatorCLI::cmd_simulate(const std::vector<std::string>& args) {
 }
 
 bool TransitSimulatorCLI::cmd_benchmark_search(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     std::cout << "🏃 Benchmarking search algorithms...\n";
     return true;
 }
 
 bool TransitSimulatorCLI::cmd_benchmark_routing(const std::vector<std::string>& args) {
+    (void)args; // Suppress unused parameter warning
     std::cout << "🏃 Benchmarking routing algorithms...\n";
     return true;
 }

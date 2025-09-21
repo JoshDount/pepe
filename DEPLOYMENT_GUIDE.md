@@ -1,6 +1,6 @@
 # Route Transit Simulator - Deployment Guide
 
-## 🚀 Production Deployment Package
+## Production Deployment Package
 
 The Route Transit Simulator is now fully deployed and ready for production use. This guide covers deployment options, system requirements, and usage instructions.
 
@@ -44,7 +44,7 @@ The Route Transit Simulator is now fully deployed and ready for production use. 
   └── benchmark_data/        # Performance baseline data
 ```
 
-## 🛠️ Installation Options
+## Installation Options
 
 ### Option 1: Standalone Deployment (Recommended)
 1. Copy the entire `/build/` directory to target system
@@ -71,7 +71,7 @@ Create a portable ZIP with:
 - Sample data
 - Launcher scripts
 
-## 🎮 Quick Start Guide
+## Quick Start Guide
 
 ### 1. Verify Installation
 ```bash
@@ -124,7 +124,7 @@ RTS> export_graph network.json
 RTS> export_results performance.csv
 ```
 
-## 📊 Performance Characteristics
+## Performance Characteristics
 
 ### Verified Performance Metrics
 | Operation | Input Size | Response Time | Memory Usage |
@@ -141,7 +141,7 @@ RTS> export_results performance.csv
 - **Data Processing**: Handles GTFS feeds up to 1GB
 - **Simulation Speed**: Real-time traffic modeling for metropolitan areas
 
-## 🔧 Configuration Options
+## Configuration Options
 
 ### Environment Variables
 ```bash

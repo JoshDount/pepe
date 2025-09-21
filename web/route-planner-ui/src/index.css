@@ -34,18 +34,18 @@ body {
 /* Custom utility classes */
 @layer utilities {
   .gradient-radial {
-    background: radial-gradient(circle at center, theme(colors.accent-primary) 0%, transparent 70%);
+    background: radial-gradient(circle at center, #B91C1C 0%, transparent 70%);
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, theme(colors.text-primary) 0%, theme(colors.accent-primary) 100%);
+    background: linear-gradient(135deg, #E5E7EB 0%, #B91C1C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .border-glow {
-    border: 1px solid theme(colors.border-default);
+    border: 1px solid rgba(127, 29, 29, 0.2);
     box-shadow: 0 0 20px rgba(185, 28, 28, 0.1);
   }
   
@@ -55,13 +55,13 @@ body {
   
   .card-hover:hover {
     transform: translateY(-2px);
-    box-shadow: theme(boxShadow.elevated);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   }
   
   /* Custom Scrollbar */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: theme(colors.accent-primary) theme(colors.bg-surface);
+    scrollbar-color: #B91C1C #12171F;
   }
   
   .custom-scrollbar::-webkit-scrollbar {
@@ -69,39 +69,39 @@ body {
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: theme(colors.bg-surface);
+    background: #12171F;
     border-radius: 3px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: theme(colors.accent-primary);
+    background: #B91C1C;
     border-radius: 3px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: theme(colors.accent-hover);
+    background: #EF4444;
   }
 }
 
 /* Focus styles for accessibility */
 @layer components {
   .focus-visible {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-opacity-50;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50;
   }
   
   .btn-primary {
-    @apply bg-accent-primary hover:bg-accent-hover text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 focus-visible;
+    @apply bg-red-700 hover:bg-red-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 focus-visible;
   }
   
   .btn-secondary {
-    @apply bg-bg-surface hover:bg-bg-elevated text-text-primary border border-border-default font-medium py-2 px-4 rounded-lg transition-all duration-200 focus-visible;
+    @apply bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 font-medium py-2 px-4 rounded-lg transition-all duration-200 focus-visible;
   }
   
   .input-field {
-    @apply bg-bg-surface border border-border-default text-text-primary placeholder-text-muted py-2 px-3 rounded-lg focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-200;
+    @apply bg-gray-800 border border-gray-600 text-gray-200 placeholder-gray-400 py-2 px-3 rounded-lg focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-200;
   }
   
   .card {
-    @apply bg-bg-surface rounded-xl p-6 border border-border-default shadow-soft;
+    @apply bg-gray-800 rounded-xl p-6 border border-gray-600 shadow-lg;
   }
 }

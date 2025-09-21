@@ -22,7 +22,8 @@ class RTSWebHandler(http.server.SimpleHTTPRequestHandler):
     
     def __init__(self, *args, **kwargs):
         # Serve files from the React app build directory
-        super().__init__(*args, directory="web/route-planner-ui/dist", **kwargs)
+        # Fixed the path to correctly point to the dist directory
+        super().__init__(*args, directory="route-planner-ui/dist", **kwargs)
     
     def do_GET(self):
         """Handle GET requests"""
@@ -279,7 +280,8 @@ class RTSWebServer:
 
 if __name__ == "__main__":
     # Check if we're in the right directory and React build files exist
-    if not os.path.exists("web/route-planner-ui/dist/index.html"):
+    # Fixed the path to correctly check for the React build files
+    if not os.path.exists("route-planner-ui/dist/index.html"):
         print("[ERROR] Error: React build files not found!")
         print("[INFO] Please ensure the React app is built in route-planner-ui/dist/")
         print("[BUILD] Run 'cd route-planner-ui && npm run build' to create build files")

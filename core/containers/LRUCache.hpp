@@ -35,7 +35,7 @@ private:
     void move_to_front(typename LinkedList<CacheNode>::Iterator& it) {
         // Remove from current position
         CacheNode node = *it;
-        auto node_ptr = it.get_node();
+        (void)it.get_node(); // Suppress unused variable warning
         
         // Find position in list to remove
         size_t position = 0;

@@ -133,37 +133,37 @@ export const animation = {
 // Compound style tokens for common UI patterns
 export const styleTokens = {
   // Container styles
-  container: 'max-w-[1280px] mx-auto px-6',
+  container: 'max-w-7xl mx-auto px-6',
   
   // Card styles
-  card: 'bg-[#12171F] rounded-lg p-6 border border-[rgba(127,29,29,0.2)] shadow-[0_4px_16px_rgba(0,0,0,0.2)]',
-  cardHover: 'bg-[#12171F] rounded-lg p-6 border border-[rgba(127,29,29,0.2)] shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-200 hover:-translate-y-1',
+  card: 'bg-gray-800 rounded-lg p-6 border border-gray-600 shadow-lg',
+  cardHover: 'bg-gray-800 rounded-lg p-6 border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1',
   
   // Button styles
   button: {
-    primary: 'bg-[#B91C1C] hover:bg-[#EF4444] text-white font-semibold px-4 py-2 rounded-lg border border-[rgba(127,29,29,0.2)] transition-colors',
-    secondary: 'bg-transparent hover:bg-[#1A1F28] text-[#E5E7EB] font-medium px-4 py-2 rounded-lg border border-[rgba(127,29,29,0.2)] transition-colors',
+    primary: 'bg-red-700 hover:bg-red-500 text-white font-semibold px-4 py-2 rounded-lg border border-red-600 transition-colors',
+    secondary: 'bg-transparent hover:bg-gray-700 text-gray-200 font-medium px-4 py-2 rounded-lg border border-gray-600 transition-colors',
   },
   
   // Input styles
-  input: 'bg-[#12171F] border border-[rgba(127,29,29,0.2)] rounded-lg px-3 py-2 text-[#E5E7EB] placeholder:text-[#9CA3AF] focus:border-[#B91C1C] focus:ring-2 focus:ring-[#B91C1C] focus:ring-opacity-50',
+  input: 'bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-gray-200 placeholder:text-gray-400 focus:border-red-600 focus:ring-2 focus:ring-red-600 focus:ring-opacity-50',
   
   // Text styles
   text: {
-    title: 'text-[60px] font-[800] text-[#E5E7EB] leading-tight',
-    subtitle: 'text-[48px] font-[800] text-[#E5E7EB] leading-tight',
-    heading: 'text-[32px] font-[600] text-[#E5E7EB]',
-    body: 'text-[16px] font-[500] text-[#E5E7EB]',
-    caption: 'text-[14px] font-[500] text-[#9CA3AF]',
-    muted: 'text-[14px] font-[500] text-[#6B7280]',
+    title: 'text-6xl font-extrabold text-gray-200 leading-tight',
+    subtitle: 'text-5xl font-extrabold text-gray-200 leading-tight',
+    heading: 'text-3xl font-semibold text-gray-200',
+    body: 'text-base font-medium text-gray-200',
+    caption: 'text-sm font-medium text-gray-400',
+    muted: 'text-sm font-medium text-gray-500',
   },
   
   // Status indicator styles
   status: {
-    online: 'text-[#10B981]',
-    offline: 'text-[#6B7280]',
-    computing: 'text-[#B91C1C] animate-pulse',
-    warning: 'text-[#F59E0B]',
+    online: 'text-green-500',
+    offline: 'text-gray-500',
+    computing: 'text-red-600 animate-pulse',
+    warning: 'text-yellow-500',
   },
   
   // Layout styles
@@ -175,7 +175,7 @@ export const styleTokens = {
   },
   
   // Focus styles for accessibility
-  focus: 'focus:outline-none focus:ring-2 focus:ring-[#B91C1C] focus:ring-opacity-50',
+  focus: 'focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50',
 } as const;
 
 // Type definitions for TypeScript support

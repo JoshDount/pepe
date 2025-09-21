@@ -47,6 +47,7 @@ public:
     }
     
     std::vector<std::string> listFiles(const std::string& directory) const {
+        (void)directory; // Suppress unused parameter warning
         // Placeholder implementation
         // In a real implementation, this would scan the directory
         return {};

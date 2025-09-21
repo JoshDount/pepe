@@ -92,11 +92,9 @@ export default defineConfig({
     exclude: [],
   },
   
-  // CSS configuration
+  // CSS configuration - Ensure PostCSS is properly configured
   css: {
     devSourcemap: true,
-    postcss: {
-      plugins: [],
-    },
+    postcss: './postcss.config.js',
   },
 })

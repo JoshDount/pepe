@@ -4,7 +4,7 @@
  */
 
 import { useEffect, useState, useCallback, FC } from 'react';
-import { useTimelineState, useTimelineActions, useCurrentRoute } from '../store';
+import { useTimelineState, useRouteAlgorithm, useRouteExpanded, useClearTimeline } from '../store';
 import { styleTokens } from '../styles/tokens';
 import type { ExpansionStep } from '../types/api';
 
@@ -16,8 +16,9 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
   maxVisibleSteps = 50 
 }) => {
   const { steps, streaming, stepCount, currentStep } = useTimelineState();
-  const { startStreaming, stopStreaming, clearTimeline } = useTimelineActions();
-  const currentRoute = useCurrentRoute();
+  const routeAlgorithm = useRouteAlgorithm();
+  const routeExpanded = useRouteExpanded();
+  const clearTimeline = useClearTimeline();
   
   const [autoScroll, setAutoScroll] = useState(true);
   const [selectedStep, setSelectedStep] = useState<number | null>(null);
@@ -70,21 +71,21 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
 
   if (steps.length === 0 && !streaming) {
     return (
-      <div className={styleTokens.card}>
-        <div className="flex items-center justify-between mb-4">
-          <h3 className={styleTokens.text.heading}>Algorithm Timeline</h3>
-          <span className="text-sm text-text-muted">No timeline data</span>
+      <div className="bg-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-lg">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white">Línea de Tiempo del Algoritmo</h3>
+          <span className="text-xs sm:text-sm text-gray-400">Sin datos de línea de tiempo</span>
         </div>
         
-        <div className="text-center py-12">
-          <div className="w-16 h-16 bg-bg-elevated rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-text-muted" fill="currentColor" viewBox="0 0 20 20">
+        <div className="text-center py-8 sm:py-12">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V5z" />
             </svg>
           </div>
-          <h4 className={styleTokens.text.heading}>No Algorithm Steps</h4>
-          <p className={styleTokens.text.caption}>
-            Enable debug mode and calculate a route to see algorithm execution steps
+          <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">Sin Pasos de Algoritmo</h4>
+          <p className="text-xs sm:text-sm text-gray-400">
+            Habilita el modo debug y calcula una ruta para ver los pasos de ejecución del algoritmo
           </p>
         </div>
       </div>
@@ -92,33 +93,33 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
   }
 
   return (
-    <div className={styleTokens.card}>
+    <div className="bg-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-lg">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 space-y-3 sm:space-y-0">
         <div>
-          <h3 className={styleTokens.text.heading}>Algorithm Timeline</h3>
-          <p className={styleTokens.text.caption}>
-            {streaming ? 'Streaming live updates...' : 
-             `Showing ${displaySteps.length} of ${stepCount} total steps`}
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white">Línea de Tiempo del Algoritmo</h3>
+          <p className="text-xs sm:text-sm text-gray-400">
+            {streaming ? 'Transmisión en vivo...' : 
+             `Mostrando ${displaySteps.length} de ${stepCount} pasos totales`}
           </p>
         </div>
         
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           {/* Streaming Indicator */}
           {streaming && (
-            <div className="flex items-center space-x-2 text-accent-primary">
-              <div className="w-2 h-2 bg-accent-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Live</span>
+            <div className="flex items-center space-x-1 sm:space-x-2 text-red-600">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-600 rounded-full animate-pulse" />
+              <span className="text-xs sm:text-sm font-medium">En Vivo</span>
             </div>
           )}
           
           {/* Auto-scroll Toggle */}
           <button
             onClick={handleToggleAutoScroll}
-            className={`text-sm px-3 py-1 rounded-md transition-colors ${
+            className={`text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-md transition-colors ${
               autoScroll 
-                ? 'bg-accent-primary text-white' 
-                : 'bg-bg-elevated text-text-secondary hover:text-text-primary'
+                ? 'bg-red-600 text-white' 
+                : 'bg-gray-700 text-gray-300 hover:text-white'
             }`}
           >
             Auto-scroll
@@ -128,82 +129,86 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
           <button
             onClick={handleClearTimeline}
             disabled={streaming}
-            className={`${styleTokens.button.secondary} text-sm px-3 py-1`}
+            className="text-xs sm:text-sm px-2 sm:px-3 py-1 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-md transition-colors"
           >
-            Clear
+            Limpiar
           </button>
         </div>
       </div>
 
       {/* Stats Bar */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div className="text-center">
-          <div className="text-xl font-bold text-accent-primary">{stepCount}</div>
-          <div className="text-xs text-text-muted">Total Steps</div>
+          <div className="text-lg sm:text-xl font-bold text-red-600">{stepCount}</div>
+          <div className="text-xs text-gray-400">Total Pasos</div>
         </div>
         
         <div className="text-center">
-          <div className="text-xl font-bold text-accent-success">{currentRoute.expanded}</div>
-          <div className="text-xs text-text-muted">Nodes Expanded</div>
+          <div className="text-lg sm:text-xl font-bold text-green-500">{routeExpanded}</div>
+          <div className="text-xs text-gray-400">Nodos Expandidos</div>
         </div>
         
         <div className="text-center">
-          <div className="text-xl font-bold text-accent-warning">
+          <div className="text-lg sm:text-xl font-bold text-yellow-500">
             {steps.length > 0 ? steps[steps.length - 1]?.currentNode || '—' : '—'}
           </div>
-          <div className="text-xs text-text-muted">Current Node</div>
+          <div className="text-xs text-gray-400">Nodo Actual</div>
         </div>
       </div>
 
       {/* Timeline Header */}
-      <div className="grid grid-cols-6 gap-2 p-3 bg-bg-elevated rounded-lg mb-2 text-xs font-semibold text-text-secondary">
-        <div>Step</div>
-        <div>Current</div>
+      <div className="grid grid-cols-6 gap-1 sm:gap-2 p-2 sm:p-3 bg-gray-700 rounded-lg mb-2 text-xs font-semibold text-gray-400">
+        <div>Paso</div>
+        <div>Actual</div>
         <div>G-Score</div>
         <div>F-Score</div>
-        <div>Open Set</div>
-        <div>Closed Set</div>
+        <div>Abierto</div>
+        <div>Cerrado</div>
       </div>
 
       {/* Timeline Steps */}
-      <div className="space-y-1 max-h-96 overflow-y-auto custom-scrollbar">
+      <div className="space-y-1 max-h-64 sm:max-h-80 lg:max-h-96 overflow-y-auto custom-scrollbar">
         {displaySteps.map((step, index) => (
           <div
             key={step.stepId}
-            className={getStepRowClass(step)}
+            className={`grid grid-cols-6 gap-1 sm:gap-2 p-2 sm:p-3 rounded-lg text-xs sm:text-sm transition-all duration-200 cursor-pointer hover:bg-gray-700 ${
+              selectedStep === step.stepId
+                ? 'bg-red-600/20 border border-red-600/30'
+                : 'bg-gray-700/50 border border-gray-600 hover:border-red-600/50'
+            }`}
             onClick={() => handleStepClick(step.stepId)}
           >
-            <div className="font-mono text-accent-primary">
+            <div className="font-mono text-red-600">
               #{step.stepId}
             </div>
             
-            <div className="font-bold text-text-primary">
+            <div className="font-bold text-white">
               {step.currentNode}
             </div>
             
-            <div className="font-mono text-accent-success">
+            <div className="font-mono text-green-500">
               {step.gScore.toFixed(2)}
             </div>
             
-            <div className="font-mono text-accent-warning">
+            <div className="font-mono text-yellow-500">
               {step.fScore ? step.fScore.toFixed(2) : '—'}
             </div>
             
-            <div className="text-text-secondary text-xs truncate" title={formatNodeList(step.openSet)}>
+            <div className="text-gray-300 text-xs truncate" title={formatNodeList(step.openSet)}>
               [{formatNodeList(step.openSet)}]
             </div>
             
-            <div className="text-text-muted text-xs truncate" title={formatNodeList(step.closedSet)}>
+            <div className="text-gray-400 text-xs truncate" title={formatNodeList(step.closedSet)}>
               [{formatNodeList(step.closedSet)}]
             </div>
           </div>
         ))}
         
         {streaming && (
-          <div className="grid grid-cols-6 gap-2 p-3 bg-accent-primary/10 rounded-lg text-sm">
-            <div className="col-span-6 flex items-center justify-center space-x-2 text-accent-primary">
-              <div className="w-4 h-4 border-2 border-accent-primary border-t-transparent rounded-full animate-spin" />
-              <span>Waiting for next step...</span>
+          <div className="grid grid-cols-6 gap-1 sm:gap-2 p-2 sm:p-3 bg-red-600/10 rounded-lg text-xs sm:text-sm">
+            <div className="col-span-6 flex items-center justify-center space-x-2 text-red-600">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />
+              <span>Esperando siguiente paso...</span>
             </div>
           </div>
         )}
@@ -211,36 +216,36 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
 
       {/* Selected Step Details */}
       {selectedStep !== null && (
-        <div className="mt-6 p-4 bg-bg-elevated rounded-lg border border-border-muted">
-          <h4 className="font-semibold text-text-primary mb-3">Step #{selectedStep} Details</h4>
+        <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-700 rounded-lg border border-gray-600">
+          <h4 className="font-semibold text-white mb-3 text-sm sm:text-base">Detalles del Paso #{selectedStep}</h4>
           {(() => {
             const step = steps.find(s => s.stepId === selectedStep);
-            if (!step) return <p className="text-text-muted">Step not found</p>;
+            if (!step) return <p className="text-gray-400 text-sm">Paso no encontrado</p>;
             
             return (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                 <div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-text-secondary">Current Node:</span>
-                      <span className="font-bold text-accent-primary">{step.currentNode}</span>
+                      <span className="text-gray-400">Nodo Actual:</span>
+                      <span className="font-bold text-red-600">{step.currentNode}</span>
                     </div>
                     
                     <div className="flex justify-between">
-                      <span className="text-text-secondary">G-Score:</span>
-                      <span className="font-mono text-accent-success">{step.gScore.toFixed(3)}</span>
+                      <span className="text-gray-400">G-Score:</span>
+                      <span className="font-mono text-green-500">{step.gScore.toFixed(3)}</span>
                     </div>
                     
                     {step.fScore && (
                       <div className="flex justify-between">
-                        <span className="text-text-secondary">F-Score:</span>
-                        <span className="font-mono text-accent-warning">{step.fScore.toFixed(3)}</span>
+                        <span className="text-gray-400">F-Score:</span>
+                        <span className="font-mono text-yellow-500">{step.fScore.toFixed(3)}</span>
                       </div>
                     )}
                     
                     <div className="flex justify-between">
-                      <span className="text-text-secondary">Timestamp:</span>
-                      <span className="font-mono text-text-primary">{step.timestamp}ms</span>
+                      <span className="text-gray-400">Timestamp:</span>
+                      <span className="font-mono text-white">{step.timestamp}ms</span>
                     </div>
                   </div>
                 </div>
@@ -248,16 +253,16 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
                 <div>
                   <div className="space-y-3">
                     <div>
-                      <div className="text-text-secondary mb-1">Open Set ({step.openSet.length} nodes):</div>
-                      <div className="bg-bg-surface p-2 rounded text-xs font-mono max-h-16 overflow-y-auto">
-                        {step.openSet.length > 0 ? step.openSet.join(', ') : 'Empty'}
+                      <div className="text-gray-400 mb-1">Conjunto Abierto ({step.openSet.length} nodos):</div>
+                      <div className="bg-gray-800 p-2 rounded text-xs font-mono max-h-16 overflow-y-auto">
+                        {step.openSet.length > 0 ? step.openSet.join(', ') : 'Vacío'}
                       </div>
                     </div>
                     
                     <div>
-                      <div className="text-text-secondary mb-1">Closed Set ({step.closedSet.length} nodes):</div>
-                      <div className="bg-bg-surface p-2 rounded text-xs font-mono max-h-16 overflow-y-auto">
-                        {step.closedSet.length > 0 ? step.closedSet.join(', ') : 'Empty'}
+                      <div className="text-gray-400 mb-1">Conjunto Cerrado ({step.closedSet.length} nodos):</div>
+                      <div className="bg-gray-800 p-2 rounded text-xs font-mono max-h-16 overflow-y-auto">
+                        {step.closedSet.length > 0 ? step.closedSet.join(', ') : 'Vacío'}
                       </div>
                     </div>
                   </div>
@@ -270,20 +275,20 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
 
       {/* Buffer Status */}
       {steps.length > 0 && (
-        <div className="mt-4 p-3 bg-bg-elevated rounded-lg">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-text-secondary">
-              Buffer: {steps.length}/5000 steps
+        <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-gray-700 rounded-lg">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm space-y-2 sm:space-y-0 sm:space-x-4">
+            <span className="text-gray-400">
+              Buffer: {steps.length}/5000 pasos
             </span>
             
-            <div className="flex items-center space-x-4">
-              <span className="text-text-muted">
-                Algorithm: {currentRoute.algorithm?.toUpperCase() || 'Unknown'}
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <span className="text-gray-500">
+                Algoritmo: {routeAlgorithm?.toUpperCase() || 'Desconocido'}
               </span>
               
-              <div className="w-32 bg-bg-surface rounded-full h-2">
+              <div className="w-24 sm:w-32 bg-gray-800 rounded-full h-1.5 sm:h-2">
                 <div 
-                  className="bg-accent-primary h-2 rounded-full transition-all duration-300"
+                  className="bg-red-600 h-1.5 sm:h-2 rounded-full transition-all duration-300"
                   style={{ width: `${(steps.length / 5000) * 100}%` }}
                 />
               </div>

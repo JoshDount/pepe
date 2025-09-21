@@ -18,6 +18,7 @@ public:
         : Event(time, 0, "MessageEvent", priority), message_(message) {}
     
     void execute(SimulationTime current_time) override {
+        (void)current_time; // Suppress unused parameter warning
         // In testing, we won't actually print to avoid cluttering output
         // std::cout << "[" << current_time << "] " << message_ << std::endl;
     }
@@ -46,6 +47,7 @@ public:
         : Event(time, 0, "CounterEvent", priority), counter_(counter), increment_(increment) {}
     
     void execute(SimulationTime current_time) override {
+        (void)current_time; // Suppress unused parameter warning
         if (counter_) {
             *counter_ += increment_;
         }

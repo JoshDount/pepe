@@ -4,7 +4,7 @@ A comprehensive data structures and algorithms project demonstrating real-world 
 
 🔗 **GitHub Repository**: https://github.com/Dagel4k/PlanificadorRutas.git
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Web Interface (Recommended)
 ```bash
@@ -146,14 +146,14 @@ make -j$(nproc)
 
 This project demonstrates all major data structures and algorithms topics:
 
-- ✅ **Abstract Data Types**: Custom Graph, Heap, Hash Table implementations
-- ✅ **Recursion**: DFS recursive traversal, AVL rotations
-- ✅ **Linear Structures**: Stacks, Queues, Linked Lists with practical applications
-- ✅ **Trees**: AVL tree with full balance maintenance
-- ✅ **Graphs**: Comprehensive graph algorithms and representations
-- ✅ **Internal Sorting**: Multiple algorithms with complexity analysis
-- ✅ **External Sorting**: k-way merge for large datasets
-- ✅ **Search Algorithms**: Sequential, binary, hashing with collision resolution
+- **Abstract Data Types**: Custom Graph, Heap, Hash Table implementations
+- **Recursion**: DFS recursive traversal, AVL rotations
+- **Linear Structures**: Stacks, Queues, Linked Lists with practical applications
+- **Trees**: AVL tree with full balance maintenance
+- **Graphs**: Comprehensive graph algorithms and representations
+- **Internal Sorting**: Multiple algorithms with complexity analysis
+- **External Sorting**: k-way merge for large datasets
+- **Search Algorithms**: Sequential, binary, hashing with collision resolution
 
 ## Testing
 

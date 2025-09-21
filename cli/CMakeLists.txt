@@ -4,8 +4,6 @@ add_executable(route_planner
 )
 
 target_link_libraries(route_planner 
-    rts_core 
-    rts_io 
     rts_engine 
     rts_viz 
     rts_bench

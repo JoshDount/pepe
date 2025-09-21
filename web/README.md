@@ -1,14 +1,14 @@
 # Route Transit Simulator - Web Interface
 
-## 🌐 Quick Start Guide
+## Quick Start Guide
 
-### 🚀 **Fastest Way to Run**
+### **Fastest Way to Run**
 
 **Double-click:** [start_web.bat](../start_web.bat)
 
 The web server will start automatically and open your browser at `http://localhost:8080`
 
-### 📋 **Manual Steps**
+### **Manual Steps**
 
 1. **Open Command Prompt/PowerShell in project directory**
 
@@ -24,37 +24,37 @@ The web server will start automatically and open your browser at `http://localho
 
 4. **Open browser:** Go to `http://localhost:8080`
 
-### 🎯 **What You'll See**
+### **What You'll See**
 
 The web interface includes:
 
-- **🗺️ Interactive Graph Visualization**
+- **Interactive Graph Visualization**
   - Drag and zoom network graphs
   - Click nodes to select start/target points
   - Real-time algorithm animation
 
-- **📊 Performance Dashboard**
+- **Performance Dashboard**
   - Live performance metrics
   - Memory usage monitoring
   - Algorithm execution statistics
 
-- **⚙️ Algorithm Controls**
+- **Algorithm Controls**
   - Choose between Dijkstra, A*, BFS, DFS
   - Adjust graph size and animation speed
   - Step-by-step execution mode
 
-- **🚦 Traffic Simulation**
+- **Traffic Simulation**
   - Real-time traffic status
   - Incident management
   - Weather impact simulation
 
-### 🛠️ **Requirements**
+### **Requirements**
 
 - **Python 3.6+** (for web server)
 - **Modern browser** (Chrome, Firefox, Safari, Edge)
 - **No additional installations needed**
 
-### 🔧 **Troubleshooting**
+### **Troubleshooting**
 
 #### Problem: "Python not found"
 **Solution:** Install Python from [python.org](https://python.org) or use static mode (double-click `index.html`)
@@ -67,7 +67,7 @@ The web interface includes:
 #### Problem: Browser doesn't open automatically
 **Solution:** Manually navigate to `http://localhost:8080`
 
-### 📱 **Features Demo**
+### **Features Demo**
 
 1. **Generate a test graph:**
    - Click "Generate Random Graph"
@@ -83,7 +83,7 @@ The web interface includes:
    - Path highlighting when found
    - Performance metrics updating
 
-### 🎮 **Interactive Controls**
+### **Interactive Controls**
 
 | Control | Function |
 |---------|----------|
@@ -95,7 +95,7 @@ The web interface includes:
 | **Run Algorithm** | Execute selected algorithm |
 | **Reset** | Clear visualization |
 
-### 🔄 **Backend Integration**
+### **Backend Integration**
 
 The web interface connects to the C++ backend through:
 - **HTTP API endpoints** for algorithm execution
@@ -103,7 +103,7 @@ The web interface connects to the C++ backend through:
 - **Performance monitoring** integration
 - **Traffic simulation** controls
 
-### 📈 **Performance Features**
+### **Performance Features**
 
 - **Algorithm Timing:** Microsecond precision measurements
 - **Memory Tracking:** Real-time memory usage monitoring
@@ -112,7 +112,7 @@ The web interface connects to the C++ backend through:
 
 ---
 
-## 🎯 **Ready to Start?**
+## **Ready to Start?**
 
 **Just run:** `start_web.bat`
 
@@ -120,4 +120,4 @@ The web interface connects to the C++ backend through:
 
 **Then visit:** `http://localhost:8080`
 
-**🎨 Enjoy the visual Route Transit Simulator experience!**
+**Enjoy the visual Route Transit Simulator experience!**
