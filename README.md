@@ -1,6 +1,49 @@
 # Route Planner + Transit Simulator
 
-A comprehensive data structures and algorithms project demonstrating real-world engineering applications of fundamental computer science concepts.
+¡Bienvenido! Si solo quieres ver la interfaz web funcionando rápido, sigue esta guía corta.
+
+## Guía Rápida (Interfaz Web)
+
+Requisitos mínimos:
+- Node.js 18 o superior (recomendado 20) – se puede fijar con `nvm use` (incluimos `.nvmrc`)
+- NPM (incluido con Node)
+- Python 3 (solo si deseas usar el servidor puente; opcional para vista previa)
+
+Opciones rápidas:
+
+1) Opción A – Desarrollo (sin backend), lo más simple
+```bash
+git clone https://github.com/Dagel4k/PlanificadorRutas.git
+cd PlanificadorRutas
+npm start
+# se abrirá en http://localhost:5173
+```
+
+2) Opción B – UI + servidor Python (recomendado si quieres endpoints /api)
+- Windows: doble clic a `start_web.bat` (compila la UI y levanta el server)
+- macOS/Linux:
+```bash
+git clone https://github.com/Dagel4k/PlanificadorRutas.git
+cd PlanificadorRutas
+./start_web.sh   # o: bash start_web.sh
+# se abrirá en http://localhost:8080
+```
+
+3) Comandos desde NPM (root del proyecto)
+```bash
+# Desarrollo (Vite) – abrirá en http://localhost:5173
+npm start
+
+# Compilar la UI
+npm run ui:build
+
+# Servir con Python (compila antes y levanta en 8080)
+npm run web:start
+```
+
+Notas:
+- En modo dev, Vite sirve la app en 5173 y proxyea /api a http://localhost:8080. Si quieres probar los endpoints, ejecuta también el servidor Python (opción B o `npm run web:start`).
+- En modo servidor Python, la UI se sirve compilada desde `web/route-planner-ui/dist` y expone endpoints de demo en `/api` (status, etc.).
 
 🔗 **GitHub Repository**: https://github.com/Dagel4k/PlanificadorRutas.git
 

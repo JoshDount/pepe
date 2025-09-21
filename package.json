@@ -1,4 +1,21 @@
 {
+  "name": "planificador-rutas",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Scripts raíz para facilitar ejecución de la interfaz web",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "prestart": "npm run ui:install",
+    "postinstall": "npm run ui:install",
+    "start": "npm run ui:dev",
+    "ui:install": "npm --prefix web/route-planner-ui install",
+    "ui:dev": "npm run --prefix web/route-planner-ui dev",
+    "ui:build": "npm run --prefix web/route-planner-ui build",
+    "ui:preview": "npm run --prefix web/route-planner-ui preview",
+    "web:start": "npm run ui:build && (python3 web/server.py || python web/server.py)"
+  },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.1",
     "vite": "^7.1.3"

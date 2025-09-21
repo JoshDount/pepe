@@ -9,14 +9,14 @@ export default defineConfig({
   
   // Development server configuration
   server: {
-    port: 8080,
+    port: 5173,
     host: true,
     open: true,
     cors: true,
     proxy: {
       // Proxy API requests to Python backend
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
       },

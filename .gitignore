@@ -110,3 +110,11 @@ Makefile
 
 # Package management
 package-lock.json (optional - uncomment if needed)
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+web/route-planner-ui/venv_osm/
