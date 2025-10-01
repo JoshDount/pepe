@@ -210,7 +210,7 @@ const MapContainer: FC<MapContainerProps> = ({ height }) => {
   if (isFullscreen) {
     return (
       <div className="fixed inset-0 z-50 bg-gray-900 flex flex-col">
-        <div className="flex-1 w-full max-w-full overflow-hidden">
+        <div className="flex-1 w-full max-w-full overflow-x-auto">
           {SvgContent}
         </div>
         {/* Bottom controls */}
@@ -232,12 +232,12 @@ const MapContainer: FC<MapContainerProps> = ({ height }) => {
   }
 
   return (
-    <div className="bg-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-lg w-full max-w-full overflow-hidden relative flex flex-col" style={{ height: effectiveHeight }}>
+    <div className="bg-gray-800 rounded-lg p-4 sm:p-6 border border-gray-600 shadow-lg w-full max-w-full overflow-x-auto relative flex flex-col" style={{ height: effectiveHeight }}>
       {/* Map Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 space-y-2 sm:space-y-0">
         <div className="min-w-0">
-          <h3 className="text-lg sm:text-xl font-semibold text-white truncate">Visualización de Ruta</h3>
-          <p className="text-xs sm:text-sm text-gray-400 truncate">
+          <h3 className="text-lg sm:text-xl font-semibold text-white whitespace-normal break-words">Visualización de Ruta</h3>
+          <p className="text-xs sm:text-sm text-gray-400 whitespace-normal break-words">
             {routeNodes.length > 0 
               ? `Mostrando ${routeNodes.length} nodos`
               : 'Visualización interactiva del grafo'
@@ -267,7 +267,7 @@ const MapContainer: FC<MapContainerProps> = ({ height }) => {
       {/* Map Container */}
       <div 
         ref={mapRef} 
-        className="relative bg-gray-700 rounded-lg border border-gray-600 overflow-hidden w-full max-w-full flex-1"
+        className="relative bg-gray-700 rounded-lg border border-gray-600 overflow-x-auto w-full max-w-full flex-1"
         style={{ minHeight: '300px' }}
       >
         {/* SVG Visualization */}
@@ -305,12 +305,12 @@ const MapContainer: FC<MapContainerProps> = ({ height }) => {
       
       {/* Map Footer */}
       {routeNodes.length > 0 && (
-        <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-gray-700 rounded-lg border border-gray-600 overflow-hidden">
+        <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-gray-700 rounded-lg border border-gray-600 overflow-x-auto">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm space-y-1 sm:space-y-0">
-            <span className="text-gray-400 truncate">
+            <span className="text-gray-400 whitespace-normal break-words">
               Ruta: {routeNodes.join(' → ')}
             </span>
-            <span className="text-red-600 font-medium truncate">
+            <span className="text-red-600 font-medium whitespace-normal break-words">
               Costo: {routeCost.toFixed(2)} | Algoritmo: {routeAlgorithm.toUpperCase()}
             </span>
           </div>

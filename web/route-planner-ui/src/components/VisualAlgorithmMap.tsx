@@ -211,7 +211,7 @@ const VisualAlgorithmMap: React.FC<VisualAlgorithmMapProps> = ({
           <div className="text-sm text-gray-400">
             Paso {currentStep + 1} de {algorithmSteps.length}
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => onStepChange?.(Math.max(0, currentStep - 1))}
               disabled={currentStep === 0}
@@ -243,7 +243,7 @@ const VisualAlgorithmMap: React.FC<VisualAlgorithmMapProps> = ({
       )}
 
       {/* Map */}
-      <div className="h-96 rounded-lg overflow-hidden border border-gray-600">
+      <div className="h-96 rounded-lg overflow-x-auto border border-gray-600">
         <MapContainer
           center={mapCenter}
           zoom={mapZoom}

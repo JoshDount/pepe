@@ -229,60 +229,60 @@ const ResultsPanel: FC<ResultsPanelProps> = ({
             <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-600">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
                 <div className="space-y-2 sm:space-y-3 min-w-0">
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Algoritmo:</span>
-                    <span className="font-semibold text-white text-xs sm:text-sm truncate ml-2">
+                    <span className="font-semibold text-white text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {routeAlgorithm?.toUpperCase()}
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Métrica:</span>
-                    <span className="font-semibold text-white text-xs sm:text-sm truncate ml-2">
+                    <span className="font-semibold text-white text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {routeMetric || 'Distancia'}
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Nodo Origen:</span>
-                    <span className="font-bold text-green-500 text-xs sm:text-sm truncate ml-2">
+                    <span className="font-bold text-green-500 text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {routeNodes[0]}
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Nodo Destino:</span>
-                    <span className="font-bold text-yellow-500 text-xs sm:text-sm truncate ml-2">
+                    <span className="font-bold text-yellow-500 text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {routeNodes[routeNodes.length - 1]}
                     </span>
                   </div>
                 </div>
                 
                 <div className="space-y-2 sm:space-y-3 min-w-0">
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Longitud de Ruta:</span>
-                    <span className="font-semibold text-white text-xs sm:text-sm truncate ml-2">
+                    <span className="font-semibold text-white text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {routeNodes.length} nodos
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Costo Promedio/Nodo:</span>
-                    <span className="font-semibold text-white text-xs sm:text-sm truncate ml-2">
+                    <span className="font-semibold text-white text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {efficiency.avgCostPerNode.toFixed(2)}
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Eficiencia:</span>
-                    <span className="font-semibold text-red-600 text-xs sm:text-sm truncate ml-2">
+                    <span className="font-semibold text-red-600 text-xs sm:text-sm whitespace-normal break-words ml-2">
                       {efficiency.efficiency.toFixed(1)}%
                     </span>
                   </div>
                   
-                  <div className="flex justify-between min-w-0">
+                  <div className="flex justify-between min-w-0 flex-wrap">
                     <span className="text-gray-400 text-xs sm:text-sm flex-shrink-0">Calidad:</span>
-                    <span className={`font-semibold text-xs sm:text-sm truncate ml-2 ${
+                    <span className={`font-semibold text-xs sm:text-sm whitespace-normal break-words ml-2 ${
                       efficiency.pathOptimality === 'Excellent' ? 'text-green-500' :
                       efficiency.pathOptimality === 'Very Good' ? 'text-red-600' :
                       efficiency.pathOptimality === 'Good' ? 'text-yellow-500' :
@@ -364,21 +364,21 @@ const ResultsPanel: FC<ResultsPanelProps> = ({
                   <div className="min-w-0">
                     <h5 className="font-semibold text-white mb-3 text-sm sm:text-base">Métricas de Ejecución</h5>
                     <div className="space-y-2 text-xs sm:text-sm">
-                      <div className="flex justify-between min-w-0">
+                      <div className="flex justify-between min-w-0 flex-wrap">
                         <span className="text-gray-400 flex-shrink-0">Tiempo de Ejecución:</span>
-                        <span className="font-mono text-red-600 truncate ml-2">
+                        <span className="font-mono text-red-600 whitespace-normal break-words ml-2">
                           {formatExecutionTime(routeExecutionTime)}
                         </span>
                       </div>
                       
-                      <div className="flex justify-between min-w-0">
+                      <div className="flex justify-between min-w-0 flex-wrap">
                         <span className="text-gray-400 flex-shrink-0">Pasos de Línea de Tiempo:</span>
-                        <span className="font-mono text-green-500 truncate ml-2">{stepCount}</span>
+                        <span className="font-mono text-green-500 whitespace-normal break-words ml-2">{stepCount}</span>
                       </div>
                       
-                      <div className="flex justify-between min-w-0">
+                      <div className="flex justify-between min-w-0 flex-wrap">
                         <span className="text-gray-400 flex-shrink-0">Ratio de Exploración:</span>
-                        <span className="font-mono text-yellow-500 truncate ml-2">
+                        <span className="font-mono text-yellow-500 whitespace-normal break-words ml-2">
                           {efficiency.explorationRatio.toFixed(2)}x
                         </span>
                       </div>
@@ -391,7 +391,7 @@ const ResultsPanel: FC<ResultsPanelProps> = ({
                       <div>
                         <div className="flex justify-between text-xs sm:text-sm mb-1 min-w-0">
                           <span className="text-gray-400 flex-shrink-0">Eficiencia de Búsqueda</span>
-                          <span className="font-semibold text-red-600 truncate ml-2">
+                          <span className="font-semibold text-red-600 whitespace-normal break-words ml-2">
                             {efficiency.efficiency.toFixed(1)}%
                           </span>
                         </div>

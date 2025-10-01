@@ -194,11 +194,11 @@ const AlgorithmTimeline: FC<AlgorithmTimelineProps> = ({
               {step.fScore ? step.fScore.toFixed(2) : '—'}
             </div>
             
-            <div className="text-gray-300 text-xs truncate" title={formatNodeList(step.openSet)}>
+            <div className="text-gray-300 text-xs whitespace-normal break-words" title={formatNodeList(step.openSet)}>
               [{formatNodeList(step.openSet)}]
             </div>
             
-            <div className="text-gray-400 text-xs truncate" title={formatNodeList(step.closedSet)}>
+            <div className="text-gray-400 text-xs whitespace-normal break-words" title={formatNodeList(step.closedSet)}>
               [{formatNodeList(step.closedSet)}]
             </div>
           </div>

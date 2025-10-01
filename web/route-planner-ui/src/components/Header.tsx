@@ -88,8 +88,8 @@ const Header: FC<HeaderProps> = ({ onActionClick, activeTab, onTabChange }) => {
               </svg>
             </div>
             <div className="min-w-0">
-              <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-white truncate">Dijkstra — Planificador de Rutas</h1>
-              <p className="text-xs sm:text-sm text-gray-400 truncate">Interfaz educativa y concisa</p>
+              <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-white whitespace-normal break-words">Dijkstra — Planificador de Rutas</h1>
+              <p className="text-xs sm:text-sm text-gray-400 whitespace-normal break-words">Interfaz educativa y concisa</p>
             </div>
           </div>
 
